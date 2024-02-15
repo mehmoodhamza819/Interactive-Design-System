@@ -1,3 +1,38 @@
 body{
     margin: 0;
+    font-family: "Poppins", sans-serif;
+    font-weight: 200;
+    background-image: url('https://png.pngtree.com/background/20231129/original/pngtree-breathtaking-winter-wonderland-close-up-of-mountains-forest-and-snowy-landscape-picture-image_6631948.jpg');
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.countDownContainer{
+    display: flex;
+}
+main-title-text{
+    text-align: center;
+    color: #ffffff;
+
+}
+.countElement{
+text-align: center;
+
+}
+.bigText{
+    margin:0 50px;
+}
+.number-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 400px; /* Adjust the width as needed */
+    margin: 0 auto; /* Center the container */
+}
+
+.number {
+    border: 1px solid #000;
+    padding: 10px;
+    text-align: center;
+    width: 75px; /* Adjust the width as needed */
 }
