@@ -1,5 +1,9 @@
 .main-body{
   margin-left: 20px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+  margin-right: 20px;
 }
 .form {
   color: #555;
@@ -153,6 +157,7 @@ button[type="submit"]:hover {
     padding: 8px;
     text-decoration: none;
     border-radius: 10px;
+    font-weight: normal;
   }
   .navi-link:hover{
     background: #8e9af2;
@@ -172,4 +177,21 @@ button[type="submit"]:hover {
     padding: 5px;
     margin-right: 5px;
     margin-bottom: 5px;
+    font-weight: normal;
+  }
+  .heading-title{
+    margin-top: 20px;
+  }
+  .search-form{
+    outline-width: 1px;
+    outline-color: grey;
+    outline-style: solid;
+    border-radius: 5px;
+  }
+  .navi{
+    margin-top: 9px;
+  }
+  .user-profiles{
+    margin-top: 30px;
+    margin-right: 0px;
   }
