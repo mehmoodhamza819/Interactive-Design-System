@@ -1,7 +1,7 @@
-const activity = document.querySelector("#activity")
-const participants = document.querySelector("#participants")
-const price = document.querySelector("#price")
-const type = document.querySelector("#type")
+const activity = document.querySelector("#activity");
+const participants = document.querySelector("#participants");
+const price = document.querySelector("#price");
+const type = document.querySelector("#type");
 
 
 
