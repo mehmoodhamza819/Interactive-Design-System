@@ -5,6 +5,7 @@ const type = document.querySelector("#type");
 
 
 
+
 const url ="https://www.boredapi.com/api/activity";
 async function getData()
 {
@@ -22,3 +23,5 @@ type.innerHTML=respData.type;
 }
 
 getData();
+
+
