@@ -1,0 +1,79 @@
+import java.util.HashMap;
+import java.util.Map;
+
+public class DecisionEngine {
+    private static final int MINIMUM_SUM = 2000;
+    private static final int MAXIMUM_SUM = 10000;
+    private static final int MINIMUM_PERIOD = 12;
+    private static final int MAXIMUM_PERIOD = 60;
+
+    private Map<String, Integer> creditModifiers;
+
+    public DecisionEngine() {
+        creditModifiers = new HashMap<>();
+        creditModifiers.put("49002010965", 0);   // debt
+        creditModifiers.put("49002010976", 100); // segment 1
+        creditModifiers.put("49002010987", 300); // segment 2
+        creditModifiers.put("49002010998", 1000);// segment 3
+    }
+
+    public boolean isValidLoan(int loanAmount, int loanPeriod) {
+        return loanAmount >= MINIMUM_SUM && loanAmount <= MAXIMUM_SUM &&
+               loanPeriod >= MINIMUM_PERIOD && loanPeriod <= MAXIMUM_PERIOD;
+    }
+
+    public double calculateCreditScore(String personalCode, int loanAmount, int loanPeriod) {
+        if (!isValidLoan(loanAmount, loanPeriod) || !creditModifiers.containsKey(personalCode)) {
+            return -1; // Invalid input
+        }
+
+        int creditModifier = creditModifiers.get(personalCode);
+        return ((double) creditModifier / loanAmount) * loanPeriod;
+    }
+
+    public String makeDecision(String personalCode, int loanAmount, int loanPeriod) {
+        if (!isValidLoan(loanAmount, loanPeriod)) {
+            return "Invalid loan parameters";
+        }
+
+        double creditScore = calculateCreditScore(personalCode, loanAmount, loanPeriod);
+        if (creditScore >= 1) {
+            return "Positive decision";
+        } else {
+            // Find the maximum approved amount
+            int maxApprovedAmount = MAXIMUM_SUM;
+            while (maxApprovedAmount >= MINIMUM_SUM) {
+                creditScore = calculateCreditScore(personalCode, maxApprovedAmount, loanPeriod);
+                if (creditScore >= 1) {
+                    return "Negative decision, maximum approved amount: " + maxApprovedAmount;
+                }
+                maxApprovedAmount -= 1000; // Decrease by 1000 until a suitable amount is found
+            }
+            return "Negative decision, no suitable loan amount found";
+        }
+    }
+}
+
+public class AgeRestrictions {
+    private static final int MIN_AGE = 18;
+    private static final int MAX_AGE = 100; // Arbitrary maximum age for simplicity
+
+    public boolean isValidAge(int age) {
+        return age >= MIN_AGE && age <= MAX_AGE;
+    }
+
+    public boolean isLoanEligible(int age, int loanPeriod) {
+        int expectedLifetime = 100; // Assuming an arbitrary value for expected lifetime
+        return isValidAge(age) && (expectedLifetime - loanPeriod) >= age;
+    }
+
+    public String provideFeedback(int age, int loanPeriod) {
+        if (!isValidAge(age)) {
+            return "Customer is underage";
+        } else if ((expectedLifetime - loanPeriod) < age) {
+            return "Customer's age exceeds expected lifetime for loan period";
+        } else {
+            return "Loan eligibility criteria satisfied";
+        }
+    }
+}
