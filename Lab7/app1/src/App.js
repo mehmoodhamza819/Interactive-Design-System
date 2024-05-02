@@ -26,6 +26,15 @@ function App() {
 
   const handleOnSubmit = (e) =>{
     e.preventDefault();
+    if(searchTerm){
+      fetch(SearchURL + APIKey + "&query=" + searchTerm) 
+      .then( (resp) => resp.json() ) 
+      .then( (data) => {
+      console.log(data.results);
+      setMovieResults(data.results);
+    }
+      )
+    }
   }
  
   const handleOnChange=(e) =>{
