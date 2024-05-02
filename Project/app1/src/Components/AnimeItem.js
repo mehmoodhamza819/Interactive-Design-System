@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import styled from "styled-components";
 
 function AnimeItem(){
@@ -84,16 +85,16 @@ function AnimeItem(){
             </div>
             <h3 className="title">Characters</h3>
             <div className="characters">
-                {characters?.map((character,index) =>{
+                {characters?.map((character,index) => {
                     const {role}=character
                     const {images,name,mal_id}=character.character
-                    return <link to={`/character/${mal_id}`} key={index}>
+                    return <Link to={`/character/${mal_id}`} key={index}>
                         <div className="character">
                             <img src={images?.jpg.image_url} alt=""/>
                             <h4>{name}</h4>
                             <p>{role}</p>
                         </div>
-                    </link>
+                    </Link>
                 })}
                 
             </div>
