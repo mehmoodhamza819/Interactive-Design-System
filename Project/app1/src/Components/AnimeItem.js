@@ -85,7 +85,8 @@ function AnimeItem(){
             </div>
             <h3 className="title">Characters</h3>
             <div className="characters">
-                {characters?.map((character,index) => {
+            {characters.map((character,index) =>{
+                    
                     const {role}=character
                     const {images,name,mal_id}=character.character
                     return <Link to={`/character/${mal_id}`} key={index}>
