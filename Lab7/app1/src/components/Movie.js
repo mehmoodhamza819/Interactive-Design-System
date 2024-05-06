@@ -2,7 +2,7 @@ import React from "react";
 import "./Movie.css";
 
 const ImageURL = 'https://image.tmdb.org/t/p/w500/';
-const placeholderImage = 'https://raw.githubusercontent.com/mehmoodhamza819/Interactive-Design-System/main/Lab7/app1/public/logo192.png';
+const placeholderImage = 'https://raw.githubusercontent.com/mehmoodhamza819/Interactive-Design-System/main/Lab7/app1/public/poster.png';
 
 function Movie({poster_path,title,overview,vote_average})
 {
