@@ -7,6 +7,7 @@ import {Contact} from './components/Contact';
 import { Header } from './components/Header';
 import { Admin } from './components/Admin';
 import {Link,NavLink,Navigate} from 'react-router-dom'
+import { NotFound } from './components/NotFound';
 
 function App() {
   const isAdmin = true;
@@ -20,6 +21,7 @@ function App() {
         <Route path='/product/:id' element={<ProductDetail/>}></Route>
         <Route path='/contact' element={<Contact/>}></Route>
         <Route path='/admin' element={ isAdmin?<Admin/>:<Navigate to="/"/>}></Route>
+        <Route path='*' element={<NotFound/>}></Route>
       </Routes>
     </div>
     <footer>FOOTER</footer>
