@@ -17,7 +17,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>}></Route>
         <Route path='/product' element={<ProductList/>}></Route>
-        <Route path='/product/222' element={<ProductDetail/>}></Route>
+        <Route path='/product/:id' element={<ProductDetail/>}></Route>
         <Route path='/contact' element={<Contact/>}></Route>
         <Route path='/admin' element={ isAdmin?<Admin/>:<Navigate to="/"/>}></Route>
       </Routes>
