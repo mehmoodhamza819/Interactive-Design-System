@@ -1,28 +1,63 @@
-.my-popular{
-    display:flex;
+.my-popular {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
-.popular-anime{
-    margin-top:2rem;
-    padding-top:2rem;
-    padding-bottom:2rem;
-    padding-left:5rem;
-    padding-right:0;
-    width:100%;
-    display:grid;
-    grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
-    grid-gap:2rem;
-    background-color:#fff;
-    border-top:5px solid #e5e7eb;
-    a{
-        height:500px;
-        border-radius:7px;
-        border:5px solid #e5e7eb;
-    }
-    a img {
-        width:100%;
-        height:100%;
-        object-fit: cover;
-        border-radius:5px;
-    }
 
+.popular-anime {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 5rem;
+    padding-right: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 2rem;
+    background-color: #fff;
+    border-top: 5px solid #e5e7eb;
+}
+
+.popular-anime a {
+    height: 500px;
+    border-radius: 7px;
+    border: 5px solid #e5e7eb;
+}
+
+.popular-anime a img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0; /* Adjust margin to place the pagination properly */
+    width: 100%; /* Ensure it spans the width of the parent container */
+}
+
+.page-item {
+    margin: 0 0.5rem; /* Add some spacing between pagination buttons */
+}
+
+.page-link {
+    background-color: #fff;
+    border: 1px solid #e5e7eb;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.page-link:hover {
+    background-color: #e5e7eb;
+}
+
+.page-item.active .page-link {
+    background-color: #e5e7eb;
+    font-weight: bold;
 }
